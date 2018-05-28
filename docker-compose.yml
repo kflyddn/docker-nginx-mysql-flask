@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  flask-wsgi:
+    restart: always
+    build:
+      context: ./nginx-flask
+      dockerfile: DockerFile
+    image: nginx-flask
+    volumes:
+      - ./nginx-flask/webapp:/webapp
+    ports:
+      - "8088:80"
+      - "4438:443"
+    networks:
+      - owncloud_default
+    external_links:
+      - mysql_5
+
+networks:
+    owncloud_default:
+        external: true
