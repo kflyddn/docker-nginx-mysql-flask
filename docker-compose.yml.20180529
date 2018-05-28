@@ -16,12 +16,6 @@ services:
       - owncloud_default
     external_links:
       - mysql_5
-    environment:
-      MYSQL_DATABASE: "db_finance"
-      MYSQL_USER: "root"
-      MYSQL_ROOT_PASSWORD: "zblj1211"
-      MYSQL_HOST: "172.18.0.2"
-      MYSQL_PORT: "3306"
 
 networks:
     owncloud_default:
