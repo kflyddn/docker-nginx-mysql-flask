@@ -11,7 +11,8 @@ logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
                     level=logging.INFO,
                     stream=sys.stdout)
 
-app = Flask(__name__, template_folder='template', static_url_path='static')
+#app = Flask(__name__, template_folder='template', static_url_path='static')
+app = Flask(__name__)
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,9 +23,9 @@ def index_controller():
         country_name = request.form.get('country_name')
         ins = countries_table.insert().values(country_name=country_name)
         db.conn.execute(ins)
-    mypath = '/uploads'
-    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
-    return render_template('home.html', active_page="home", files=onlyfiles)
+    #mypath = '/uploads'
+    #onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+    return render_template('home.html', active_page="home") #, files=onlyfiles)
 
 
 @app.route('/list')
@@ -36,4 +37,5 @@ def list_controller():
     return render_template('country_list.html', active_page="list", data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', threaded=True)
+    #app.run(debug=True, host='0.0.0.0', threaded=True)
+    app.run()
