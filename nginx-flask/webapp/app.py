@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-
-"""Minimal Flask app."""
-
 from flask import Flask
 from flask import render_template, request
 import logging
@@ -15,7 +11,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)s %(message)s',
                     level=logging.INFO,
                     stream=sys.stdout)
 
-app = Flask(__name__, template_folder='template', static_url_path='')
+app = Flask(__name__, template_folder='template', static_url_path='static')
 
 
 @app.route('/', methods=['GET', 'POST'])
